@@ -1,5 +1,6 @@
 package com.martin.designlibrary;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.WindowManager;
 public class MainActivity extends AppCompatActivity {
 
     private TextInputLayout mFirst;
+    private FloatingActionButton mFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         mFirst = (TextInputLayout) findViewById(R.id.tilFirst);
+        mFab = (FloatingActionButton) findViewById(R.id.fab);
+
+        mFab.setImageDrawable(getResources().getDrawable(R.drawable.ic_add));
         mFirst.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
