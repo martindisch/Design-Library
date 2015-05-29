@@ -27,18 +27,18 @@ public class MainActivity extends AppCompatActivity {
         mFirst = (TextInputLayout) findViewById(R.id.tilFirst);
         mFab = (FloatingActionButton) findViewById(R.id.fab);
 
-        mFab.setImageDrawable(getResources().getDrawable(R.drawable.ic_add));
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Great job", Snackbar.LENGTH_LONG).setAction("Got it", null).setActionTextColor(R.color.accent).show();
+                Snackbar.make(view, "Great job", Snackbar.LENGTH_LONG).setAction("Got it", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {}
+                }).show();
             }
         });
         mFirst.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -51,9 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
+            public void afterTextChanged(Editable editable) {}
         });
     }
 
