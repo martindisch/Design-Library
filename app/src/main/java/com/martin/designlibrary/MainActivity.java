@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mSelected = 0;
+        mCurrent = -1;
+
         mLayoutContainer = (FrameLayout) findViewById(R.id.container);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -56,10 +59,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerClosed(View drawerView) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
-                Fragment fragment = first_fragment.newInstance();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .commit();
+                Fragment fragment = null;
+                if (mSelected != mCurrent) {
+                    switch (mSelected) {
+                        case 0:
+                            fragment = first_fragment.newInstance();
+                            break;
+                    }
+                    mCurrent = mSelected;
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, fragment)
+                            .commit();
+                }
             }
 
             @Override
@@ -79,7 +90,26 @@ public class MainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        mSelected = 0;
+                        switch (menuItem.getItemId()) {
+                            case R.id.nav_home:
+                                mSelected = 0;
+                                break;
+                            case R.id.nav_messages:
+                                mSelected = 0;
+                                break;
+                            case R.id.nav_friends:
+                                mSelected = 0;
+                                break;
+                            case R.id.nav_discussion:
+                                mSelected = 0;
+                                break;
+                            case R.id.nav_sub1:
+                                mSelected = 0;
+                                break;
+                            case R.id.nav_sub2:
+                                mSelected = 0;
+                                break;
+                        }
                         menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         return true;

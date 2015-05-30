@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,15 +34,19 @@
             android:title="Discussion" />
     </group>
 
-    <item android:title="Sub items">
-        <menu>
-            <item
-                android:icon="@drawable/ic_dashboard"
-                android:title="Sub item 1" />
-            <item
-                android:icon="@drawable/ic_forum"
-                android:title="Sub item 2" />
-        </menu>
-    </item>
+    <group android:checkableBehavior="single">
+        <item android:title="Sub items">
+            <menu>
+                <item
+                    android:id="@+id/nav_sub1"
+                    android:icon="@drawable/ic_dashboard"
+                    android:title="Sub item 1" />
+                <item
+                    android:id="@+id/nav_sub2"
+                    android:icon="@drawable/ic_forum"
+                    android:title="Sub item 2" />
+            </menu>
+        </item>
+    </group>
 
 </menu>
