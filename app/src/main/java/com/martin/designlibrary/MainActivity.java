@@ -26,62 +26,76 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
-    private FrameLayout mLayoutContainer;
     private int mSelected, mCurrent;
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mSelected = 0;
-        mCurrent = -1;
+        if (savedInstanceState != null) {
+            mSelected = savedInstanceState.getInt("mSelected");
+            mCurrent = savedInstanceState.getInt("mCurrent");
+        } else {
+            mCurrent = -1;
+            mSelected = 0;
+        }
 
-        mLayoutContainer = (FrameLayout) findViewById(R.id.container);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         mDrawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
-
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
-
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                Fragment fragment = null;
-                if (mSelected != mCurrent) {
-                    switch (mSelected) {
-                        case 0:
-                            fragment = first_fragment.newInstance();
-                            break;
-                    }
-                    mCurrent = mSelected;
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.container, fragment)
-                            .commit();
-                }
             }
 
             @Override
             public void onDrawerStateChanged(int newState) {
+            }
 
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                updateContainer();
             }
         });
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        if (navigationView != null) {
-            setupDrawerContent(navigationView);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        if (mNavigationView != null) {
+            setupDrawerContent(mNavigationView);
+        }
+
+        selectDrawerItem(mSelected);
+    }
+
+    private void selectDrawerItem(int i) {
+        mNavigationView.getMenu().getItem(i).setChecked(true);
+        updateContainer();
+    }
+
+    private void updateContainer() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = null;
+        if (mSelected != mCurrent) {
+            switch (mSelected) {
+                case 0:
+                    fragment = first_fragment.newInstance();
+                    break;
+                default:
+                    fragment = first_fragment.newInstance();
+                    break;
+            }
+            mCurrent = mSelected;
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
         }
     }
 
@@ -95,19 +109,19 @@ public class MainActivity extends AppCompatActivity {
                                 mSelected = 0;
                                 break;
                             case R.id.nav_messages:
-                                mSelected = 0;
+                                mSelected = 1;
                                 break;
                             case R.id.nav_friends:
-                                mSelected = 0;
+                                mSelected = 2;
                                 break;
                             case R.id.nav_discussion:
-                                mSelected = 0;
+                                mSelected = 3;
                                 break;
                             case R.id.nav_sub1:
-                                mSelected = 0;
+                                mSelected = 4;
                                 break;
                             case R.id.nav_sub2:
-                                mSelected = 0;
+                                mSelected = 5;
                                 break;
                         }
                         menuItem.setChecked(true);
@@ -132,5 +146,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("mSelected", mSelected);
+        outState.putInt("mCurrent", mCurrent);
+        super.onSaveInstanceState(outState);
     }
 }
