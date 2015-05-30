@@ -28,13 +28,7 @@ public class TabFragment extends Fragment {
         return fragment;
     }
 
-    public TabFragment() {
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    public TabFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,7 +66,7 @@ public class TabFragment extends Fragment {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        Adapter adapter = new Adapter(getActivity().getSupportFragmentManager());
+        Adapter adapter = new Adapter(getChildFragmentManager());
         adapter.addFragment(EditFragment.newInstance(), "Editing widgets");
         adapter.addFragment(ListFragment.newInstance(), "Scrolling tab");
         viewPager.setAdapter(adapter);
