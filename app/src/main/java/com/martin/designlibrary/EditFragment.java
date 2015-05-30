@@ -1,7 +1,6 @@
 package com.martin.designlibrary;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -19,7 +18,8 @@ public class EditFragment extends Fragment {
         return fragment;
     }
 
-    public EditFragment() {}
+    public EditFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

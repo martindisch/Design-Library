@@ -18,7 +18,8 @@ public class ListFragment extends Fragment {
         return fragment;
     }
 
-    public ListFragment() {}
+    public ListFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

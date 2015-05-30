@@ -28,7 +28,8 @@ public class TabFragment extends Fragment {
         return fragment;
     }
 
-    public TabFragment() {}
+    public TabFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +55,7 @@ public class TabFragment extends Fragment {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Great job", Snackbar.LENGTH_LONG).setAction("Got it", new View.OnClickListener() {
+                Snackbar.make(view, "Swipe me away", Snackbar.LENGTH_LONG).setAction("Got it", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                     }

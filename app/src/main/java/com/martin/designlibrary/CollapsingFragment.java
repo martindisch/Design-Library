@@ -21,7 +21,8 @@ public class CollapsingFragment extends Fragment {
         return fragment;
     }
 
-    public CollapsingFragment() {}
+    public CollapsingFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,5 @@ public class CollapsingFragment extends Fragment {
         mList.setAdapter(new ListAdapter());
         return rootView;
     }
-
 
 }
