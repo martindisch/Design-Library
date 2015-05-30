@@ -14,6 +14,11 @@ public class EditFragment extends Fragment {
 
     private TextInputLayout mFirst;
 
+    public static EditFragment newInstance() {
+        EditFragment fragment = new EditFragment();
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

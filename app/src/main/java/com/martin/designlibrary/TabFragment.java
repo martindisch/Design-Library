@@ -73,8 +73,8 @@ public class TabFragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(new EditFragment(), "Editing widgets");
-        adapter.addFragment(new EditFragment(), "Scrolling tab");
+        adapter.addFragment(EditFragment.newInstance(), "Editing widgets");
+        adapter.addFragment(ListFragment.newInstance(), "Scrolling tab");
         viewPager.setAdapter(adapter);
     }
 
