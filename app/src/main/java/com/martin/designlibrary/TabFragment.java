@@ -19,16 +19,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class first_fragment extends Fragment {
+public class TabFragment extends Fragment {
 
     private FloatingActionButton mFab;
 
-    public static first_fragment newInstance() {
-        first_fragment fragment = new first_fragment();
+    public static TabFragment newInstance() {
+        TabFragment fragment = new TabFragment();
         return fragment;
     }
 
-    public first_fragment() {
+    public TabFragment() {
     }
 
     @Override
@@ -39,7 +39,7 @@ public class first_fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.first, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tab, container, false);
 
         Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
@@ -73,8 +73,8 @@ public class first_fragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(new FragmentEdit(), "Editing widgets");
-        adapter.addFragment(new FragmentEdit(), "Category 2");
+        adapter.addFragment(new EditFragment(), "Editing widgets");
+        adapter.addFragment(new EditFragment(), "Scrolling tab");
         viewPager.setAdapter(adapter);
     }
 

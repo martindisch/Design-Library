@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentEdit extends Fragment {
+public class EditFragment extends Fragment {
 
     private TextInputLayout mFirst;
 

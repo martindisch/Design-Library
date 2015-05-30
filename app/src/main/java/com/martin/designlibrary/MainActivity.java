@@ -86,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
         if (mSelected != mCurrent) {
             switch (mSelected) {
                 case 0:
-                    fragment = first_fragment.newInstance();
+                    fragment = TabFragment.newInstance();
                     break;
                 default:
-                    fragment = first_fragment.newInstance();
+                    fragment = TabFragment.newInstance();
                     break;
             }
             mCurrent = mSelected;
@@ -110,18 +110,6 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case R.id.nav_messages:
                                 mSelected = 1;
-                                break;
-                            case R.id.nav_friends:
-                                mSelected = 2;
-                                break;
-                            case R.id.nav_discussion:
-                                mSelected = 3;
-                                break;
-                            case R.id.nav_sub1:
-                                mSelected = 4;
-                                break;
-                            case R.id.nav_sub2:
-                                mSelected = 5;
                                 break;
                         }
                         menuItem.setChecked(true);
