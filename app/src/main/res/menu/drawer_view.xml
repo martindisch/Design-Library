@@ -34,7 +34,7 @@
             android:title="Discussion" />
     </group>
 
-    <group android:checkableBehavior="single">
+    <group>
         <item android:title="Sub items">
             <menu>
                 <item
