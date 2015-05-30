@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     fragment = TabFragment.newInstance();
                     break;
-                default:
-                    fragment = TabFragment.newInstance();
+                case 1:
+                    fragment = CollapsingFragment.newInstance();
                     break;
             }
             mCurrent = mSelected;
