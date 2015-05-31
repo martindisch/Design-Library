@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
-    private String[] items = {
+    private final String[] items = {
             "worcestershire",
             "hobbledehoy",
             "interstratifying",
@@ -57,7 +57,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvText;
+        public final TextView tvText;
 
         public ViewHolder(View v) {
             super(v);

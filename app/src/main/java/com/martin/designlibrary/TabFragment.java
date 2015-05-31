@@ -21,11 +21,8 @@ import java.util.List;
 
 public class TabFragment extends Fragment {
 
-    private FloatingActionButton mFab;
-
     public static TabFragment newInstance() {
-        TabFragment fragment = new TabFragment();
-        return fragment;
+        return new TabFragment();
     }
 
     public TabFragment() {
@@ -51,7 +48,7 @@ public class TabFragment extends Fragment {
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        mFab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        FloatingActionButton mFab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

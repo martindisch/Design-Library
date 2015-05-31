@@ -14,19 +14,11 @@ import android.view.ViewGroup;
 
 public class CollapsingFragment extends Fragment {
 
-    private RecyclerView mList;
-
     public static CollapsingFragment newInstance() {
-        CollapsingFragment fragment = new CollapsingFragment();
-        return fragment;
+        return new CollapsingFragment();
     }
 
     public CollapsingFragment() {
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -44,7 +36,7 @@ public class CollapsingFragment extends Fragment {
         CollapsingToolbarLayout ctl = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         ctl.setTitle("Collapse");
 
-        mList = (RecyclerView) rootView.findViewById(R.id.rvContents);
+        RecyclerView mList = (RecyclerView) rootView.findViewById(R.id.rvContents);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mList.setLayoutManager(layoutManager);

@@ -14,8 +14,7 @@ public class EditFragment extends Fragment {
     private TextInputLayout mFirst;
 
     public static EditFragment newInstance() {
-        EditFragment fragment = new EditFragment();
-        return fragment;
+        return new EditFragment();
     }
 
     public EditFragment() {

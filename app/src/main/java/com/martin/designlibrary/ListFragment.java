@@ -11,26 +11,18 @@ import android.view.ViewGroup;
 
 public class ListFragment extends Fragment {
 
-    private RecyclerView mList;
-
     public static ListFragment newInstance() {
-        ListFragment fragment = new ListFragment();
-        return fragment;
+        return new ListFragment();
     }
 
     public ListFragment() {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list, container, false);
-        mList = (RecyclerView) rootView.findViewById(R.id.rvContents);
+        RecyclerView mList = (RecyclerView) rootView.findViewById(R.id.rvContents);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mList.setLayoutManager(layoutManager);
